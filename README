@@ -1,0 +1,10 @@
+ConvertFS/dist/Debug/GNU-Linux-x86/convertfs -o settings=.music.cfsxml MP3
+
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <rule classificator-type="ext" classificator-data=".flac" filter-type="command" filter-data=".mp3,ffmpeg -i '%s' -acodec libmp3lame -ab 320k -ar 44100 -f mp3 -" human-readable="Файлы *.flac установить расширение .mp3 и выполнить команду ffmpeg -i '%s' -acodec libmp3lame -ab 320k -ar 44100 -f mp3 -"/>
+    <rule classificator-type="any" classificator-data="" filter-type="windows-names" filter-data="" human-readable="Любой файл преобразовать имя для Windows"/>
+    <rule classificator-type="ext" classificator-data=".jpg" filter-type="ignore" filter-data="" human-readable="Файлы *.jpg игнорировать"/>
+    <cache enabled="0" directory=""/>
+    <source directory="/home/themylogin/Music"/>
+</configuration>
