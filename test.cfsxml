@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
-    <rule classificator-type="ext" classificator-data="aaa" filter-type="windows-names" filter-data="" human-readable="Файлы *.aaa преобразовать имя для Windows"/>
-    <rule classificator-type="ext" classificator-data="vvv" filter-type="command" filter-data="zzzz&quot;@_@" human-readable="Файлы *.vvv выполнить команду zzzz&quot;@_@"/>
-    <rule classificator-type="any" classificator-data="" filter-type="ignore" filter-data="" human-readable="Любой файл игнорировать"/>
-    <cache enabled="1" directory="/home/themylogin1"/>
-    <source directory="/home/themylogin1"/>
+    <rule classificator-type="ext" classificator-data=".flac" filter-type="command" filter-data=".mp3,ffmpeg -i '%s' -acodec libmp3lame -ab 320k -ar 44100 -f mp3 -" human-readable="Файлы *.flac установить расширение .mp3 и выполнить команду ffmpeg -i '%s' -acodec libmp3lame -ab 320k -ar 44100 -f mp3 -"/>
+    <rule classificator-type="any" classificator-data="" filter-type="windows-names" filter-data="" human-readable="Любой файл преобразовать имя для Windows"/>
+    <rule classificator-type="ext" classificator-data=".jpg" filter-type="ignore" filter-data="" human-readable="Файлы *.jpg игнорировать"/>
+    <cache enabled="0" directory=""/>
+    <source directory="/home/themylogin/Music"/>
 </configuration>
