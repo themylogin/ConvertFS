@@ -17,19 +17,20 @@ RANLIB=ranlib
 CC=gcc
 CCC=g++
 CXX=g++
-FC=
+FC=gfortran
 AS=as
 
 # Macros
 CND_PLATFORM=GNU-Linux-x86
 CND_CONF=Release
 CND_DISTDIR=dist
+CND_BUILDDIR=build
 
 # Include project Makefile
 include Makefile
 
 # Object Directory
-OBJECTDIR=build/${CND_CONF}/${CND_PLATFORM}
+OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
@@ -44,8 +45,8 @@ OBJECTFILES= \
 	${OBJECTDIR}/Dispatcher.o \
 	${OBJECTDIR}/WindowsNamesFilter.o \
 	${OBJECTDIR}/ShellCommandStream.o \
-	${OBJECTDIR}/EntryFactory.o \
 	${OBJECTDIR}/FS.o \
+	${OBJECTDIR}/EntryFactory.o \
 	${OBJECTDIR}/AnyClassificator.o \
 	${OBJECTDIR}/ConvertFilter.o \
 	${OBJECTDIR}/Descriptor.o \
@@ -70,10 +71,10 @@ LDLIBSOPTIONS=
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
-	"${MAKE}"  -f nbproject/Makefile-Release.mk dist/Release/GNU-Linux-x86/convertfs
+	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/convertfs
 
-dist/Release/GNU-Linux-x86/convertfs: ${OBJECTFILES}
-	${MKDIR} -p dist/Release/GNU-Linux-x86
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/convertfs: ${OBJECTFILES}
+	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/convertfs ${OBJECTFILES} ${LDLIBSOPTIONS} 
 
 ${OBJECTDIR}/Tree.o: Tree.cpp 
@@ -131,15 +132,15 @@ ${OBJECTDIR}/ShellCommandStream.o: ShellCommandStream.cpp
 	${RM} $@.d
 	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/ShellCommandStream.o ShellCommandStream.cpp
 
-${OBJECTDIR}/EntryFactory.o: EntryFactory.cpp 
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} $@.d
-	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/EntryFactory.o EntryFactory.cpp
-
 ${OBJECTDIR}/FS.o: FS.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} $@.d
 	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/FS.o FS.cpp
+
+${OBJECTDIR}/EntryFactory.o: EntryFactory.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} $@.d
+	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/EntryFactory.o EntryFactory.cpp
 
 ${OBJECTDIR}/AnyClassificator.o: AnyClassificator.cpp 
 	${MKDIR} -p ${OBJECTDIR}
@@ -166,8 +167,8 @@ ${OBJECTDIR}/IgnoreFilter.o: IgnoreFilter.cpp
 
 # Clean Targets
 .clean-conf: ${CLEAN_SUBPROJECTS}
-	${RM} -r build/Release
-	${RM} dist/Release/GNU-Linux-x86/convertfs
+	${RM} -r ${CND_BUILDDIR}/${CND_CONF}
+	${RM} ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/convertfs
 
 # Subprojects
 .clean-subprojects:
